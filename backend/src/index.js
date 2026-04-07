@@ -185,22 +185,26 @@ app.post("/api/auth/login", async (req, res) => {
     return res.status(400).json({ error: "Invalid credentials payload" });
   }
 
-  const admin = await verifyAdminLogin(parsed.data.username, parsed.data.password);
-  if (!admin) {
+  try {
+    const admin = await verifyAdminLogin(parsed.data.username, parsed.data.password);
+    if (!admin) {
+      return res.status(401).json({ error: "Invalid username or password" });
+    }
+
+    const token = signAuthToken({
+      sub: admin.id,
+      role: admin.role,
+      displayName: admin.displayName,
+      exp: Date.now() + 1000 * 60 * 60 * 10,
+    });
+
+    return res.json({
+      token,
+      admin,
+    });
+  } catch (error) {
     return res.status(401).json({ error: "Invalid username or password" });
   }
-
-  const token = signAuthToken({
-    sub: admin.id,
-    role: admin.role,
-    displayName: admin.displayName,
-    exp: Date.now() + 1000 * 60 * 60 * 10,
-  });
-
-  return res.json({
-    token,
-    admin,
-  });
 });
 
 app.get("/api/auth/me", requireRole(CONTENT_WRITE_ROLES), (req, res) => {

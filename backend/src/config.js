@@ -12,7 +12,7 @@ function requireEnv(name) {
 }
 
 export const config = {
-  port: Number(process.env.PORT || process.env.BACKEND_PORT || 8787),
+  port: Number(process.env.BACKEND_PORT || 8787),
   corsOrigins: (process.env.CORS_ORIGIN || "*")
     .split(",")
     .map((s) => s.trim())

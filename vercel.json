@@ -1,7 +1,5 @@
 {
-  "framework": null,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "installCommand": "npm install",
-  "regions": ["bom1"]
+  "installCommand": "npm install"
 }

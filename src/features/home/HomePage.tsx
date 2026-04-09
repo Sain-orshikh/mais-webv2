@@ -381,6 +381,76 @@ export function HomePage() {
           </div>
         </section>
       )}
+
+      {/* Location Map Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-serif font-bold text-black mb-4">{isEnglish ? 'Find Us' : 'Бидийг探す'}</h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              {isEnglish 
+                ? 'Located in the heart of Ulaanbaatar, Mongolia'
+                : 'Улаанбаатар, Монголын төвөд байрлах'}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-2xl overflow-hidden shadow-lg"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.650542986599!2d106.97919947671312!3d47.90468146734578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d96919a07dfcf83%3A0xc37dcc5f0d801dee!2sMongol%20Aspiration%20International%20School!5e1!3m2!1sen!2smn!4v1775751886153!5m2!1sen!2smn"
+              width="100%"
+              height="500"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
+            <div className="bg-white rounded-xl p-6 shadow-sm text-center">
+              <Compass size={32} className="text-cardinal-red mx-auto mb-3" />
+              <h3 className="font-bold text-black mb-2">{isEnglish ? 'Address' : 'Хаяг'}</h3>
+              <p className="text-sm text-gray-600">WX3J+RMP, BZD - 36 khoroo, Ulaanbaatar 13271</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm text-center">
+              <Users size={32} className="text-digital-blue mx-auto mb-3" />
+              <h3 className="font-bold text-black mb-2">{isEnglish ? 'Get Directions' : 'Чиглэлүүл авах'}</h3>
+              <a 
+                href="https://maps.app.goo.gl/bkJdU7xnNe588o6V9" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-sm text-cardinal-red font-bold hover:underline"
+              >
+                {isEnglish ? 'Open in Google Maps' : 'Google Maps-д нээх'}
+              </a>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm text-center">
+              <Award size={32} className="text-sand mx-auto mb-3" />
+              <h3 className="font-bold text-black mb-2">{isEnglish ? 'Campus' : 'Сургуулийн байр'}</h3>
+              <p className="text-sm text-gray-600">{isEnglish ? 'Modern facilities in central UB' : 'Төв Улаанбаатарт орч орчин'}</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }

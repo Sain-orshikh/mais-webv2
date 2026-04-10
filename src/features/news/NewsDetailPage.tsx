@@ -75,19 +75,18 @@ export function NewsDetailPage() {
           </h1>
 
           <style>{`
-            .news-content img[alt*="🏆"],
-            .news-content img[alt*="🎓"],
-            .news-content img[alt*="⭐"],
-            .news-content img[alt*="🌟"],
-            .news-content img[alt*="🎉"],
-            .news-content img[src*="emoji.php"],
-            .news-content img[width="16"] {
+            .news-content img,
+            .news-content span {
               display: inline !important;
               vertical-align: text-bottom !important;
+            }
+            .news-content img[src*="emoji.php"],
+            .news-content img[width="16"],
+            .news-content img[height="16"] {
               margin: 0 0.2em !important;
             }
             .news-content p {
-              display: inline !important;
+              margin: 1em 0 !important;
             }
           `}</style>
 

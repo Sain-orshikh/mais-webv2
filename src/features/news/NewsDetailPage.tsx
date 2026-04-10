@@ -74,8 +74,25 @@ export function NewsDetailPage() {
             {bil(isEnglish, article.title_en, article.title_mn)}
           </h1>
 
+          <style>{`
+            .news-content img[alt*="🏆"],
+            .news-content img[alt*="🎓"],
+            .news-content img[alt*="⭐"],
+            .news-content img[alt*="🌟"],
+            .news-content img[alt*="🎉"],
+            .news-content img[src*="emoji.php"],
+            .news-content img[width="16"] {
+              display: inline !important;
+              vertical-align: text-bottom !important;
+              margin: 0 0.2em !important;
+            }
+            .news-content p {
+              display: inline !important;
+            }
+          `}</style>
+
           <div
-            className="prose prose-lg max-w-none text-gray-700 font-sans leading-relaxed"
+            className="news-content prose prose-lg max-w-none text-gray-700 font-sans leading-relaxed"
             dangerouslySetInnerHTML={{
               __html: bil(isEnglish, article.content_en, article.content_mn) || ''
             }}

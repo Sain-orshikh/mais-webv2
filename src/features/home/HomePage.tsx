@@ -151,7 +151,7 @@ export function HomePage() {
               </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {latestNews.map((news, i) => (
+              {latestNews.slice(0, 4).map((news, i) => (
                 <motion.article
                   key={news.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -161,9 +161,8 @@ export function HomePage() {
                   className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-cardinal-red/20 group"
                 >
                   {news.image ? (
-                    <div className="relative overflow-hidden h-48">
+                    <div className="overflow-hidden h-48">
                       <img src={news.image} alt={bil(isEnglish, news.title_en, news.title_mn)} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                      <div className="absolute top-3 right-3 bg-cardinal-red text-white px-2.5 py-0.5 rounded-full text-xs font-bold">{tr(ui.newsTag)}</div>
                     </div>
                   ) : (
                     <div className="h-48 bg-gradient-to-br from-cardinal-red/10 to-digital-blue/10 flex items-center justify-center">

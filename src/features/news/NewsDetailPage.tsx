@@ -64,9 +64,6 @@ export function NewsDetailPage() {
           </div>
 
           <div className="flex items-center gap-3 mb-6">
-            <span className="text-xs font-bold uppercase tracking-wider text-cardinal-red bg-cardinal-red/10 px-2 py-1 rounded">
-              {t('News', 'Мэдээ')}
-            </span>
             <span className="text-sm text-gray-400">{formatDate(article.created_at)}</span>
           </div>
 

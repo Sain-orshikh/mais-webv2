@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FileText, ArrowRight, Loader } from 'lucide-react';
+import { ArrowRight, Loader } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import { bil, formatDate, truncateWords } from '../../lib/utils';
@@ -48,19 +48,16 @@ export function NewsPage() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-cardinal-red/20 group flex flex-col h-full"
               >
-                {article.image ? (
-                  <div className="h-48 overflow-hidden">
-                    <img
-                      src={article.image}
-                      alt={bil(isEnglish, article.title_en, article.title_mn)}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                ) : (
-                  <div className="h-48 bg-gray-100 flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-500">
-                    <FileText size={48} className="opacity-20" />
-                  </div>
-                )}
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={article.image || '/placeholder.png'}
+                    alt={bil(isEnglish, article.title_en, article.title_mn)}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/placeholder.png';
+                    }}
+                  />
+                </div>
                 <div className="p-8 flex-1 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-xs font-bold uppercase tracking-wider text-cardinal-red bg-cardinal-red/10 px-2 py-1 rounded">

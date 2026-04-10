@@ -52,26 +52,22 @@ export function NewsDetailPage() {
             {t('Back to News', 'Мэдээнүүд рүү буцах')}
           </Link>
 
-          {article.image && (
-            <div className="rounded-2xl overflow-hidden mb-8">
-              <img
-                src={article.image}
-                alt={bil(isEnglish, article.title_en, article.title_mn)}
-                className="w-full h-64 md:h-96 object-cover"
-                onError={(e) => {
-                  console.error('Image failed to load:', article.image);
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
-              />
-            </div>
-          )}
+          <div className="rounded-2xl overflow-hidden mb-8">
+            <img
+              src={article.image || '/placeholder.png'}
+              alt={bil(isEnglish, article.title_en, article.title_mn)}
+              className="w-full h-64 md:h-96 object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = '/placeholder.png';
+              }}
+            />
+          </div>
 
           <div className="flex items-center gap-3 mb-6">
             <span className="text-xs font-bold uppercase tracking-wider text-cardinal-red bg-cardinal-red/10 px-2 py-1 rounded">
               {t('News', 'Мэдээ')}
             </span>
             <span className="text-sm text-gray-400">{formatDate(article.created_at)}</span>
-            <span className="text-sm text-gray-400">• {article.author}</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-black mb-8 leading-tight">

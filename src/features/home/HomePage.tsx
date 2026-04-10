@@ -171,7 +171,7 @@ export function HomePage() {
                     </div>
                   )}
                   <div className="p-6">
-                    <p className="text-xs text-gray-400 mb-2">{formatDate(news.created_at)} • {news.author}</p>
+                    <p className="text-xs text-gray-400 mb-2">{formatDate(news.created_at)}</p>
                     <h3 className="text-lg font-serif font-bold text-black mb-3 line-clamp-2 group-hover:text-cardinal-red transition-colors">
                       <Link to={`/news/${news.slug}`}>{bil(isEnglish, news.title_en, news.title_mn)}</Link>
                     </h3>

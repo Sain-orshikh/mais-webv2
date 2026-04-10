@@ -9,7 +9,7 @@ import { usePublicNews } from '../../hooks/usePublicNews';
 export function NewsPage() {
   const { isEnglish, t } = useLanguage();
   const { data: allNews, isLoading } = usePublicNews();
-  const itemsPerPage = 4;
+  const itemsPerPage = 6;
   const [displayedNews, setDisplayedNews] = useState<typeof allNews>([]);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -67,7 +67,7 @@ export function NewsPage() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-cardinal-red/20 group flex flex-col h-full"
+                  className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-200 hover:border-cardinal-red/30 group flex flex-col h-full"
                 >
                   <div className="h-48 overflow-hidden">
                     <img

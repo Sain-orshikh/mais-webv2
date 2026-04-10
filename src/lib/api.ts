@@ -9,8 +9,6 @@ import type {
   AlumniStats,
   AlumniCountry,
   SchoolInfo,
-  SchoolCharacteristic,
-  NationalProgram,
   InternationalProgram,
   StudentProgram,
 } from "./types";
@@ -111,14 +109,31 @@ export interface CounselingService {
   description_mn: string;
   description_en?: string | null;
 }
+export interface Principal {
+  name_en: string;
+  name_mn: string;
+  title_en: string;
+  title_mn: string;
+  photo: string | null;
+  message_en: string;
+  message_mn: string;
+}
+export interface TimelineItem {
+  id: number;
+  year: number;
+  title_en: string;
+  title_mn: string;
+  description_en: string;
+  description_mn: string;
+}
 export interface AboutData {
   school_info: SchoolInfo | null;
-  characteristics: SchoolCharacteristic[];
-  national_program: NationalProgram | null;
   international_program: InternationalProgram | null;
   student_programs: StudentProgram[];
   achievements: Achievement[];
   graduate_stats: GraduateStat[];
+  principal: Principal;
+  timeline: TimelineItem[];
   total_graduates: number;
   total_abroad: number;
   total_scholarship: number;

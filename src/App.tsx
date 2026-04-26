@@ -8,7 +8,6 @@ import { PDQPage } from './features/academics/PDQPage';
 import { AdmissionsPage } from './features/admissions/AdmissionsPage';
 import { StudentLifePage } from './features/student-life/StudentLifePage';
 import { ClubsPage } from './features/student-life/ClubsPage';
-import { DOFEPage } from './features/student-life/DOFEPage';
 import { StudentSupportPage } from './features/student-support/StudentSupportPage';
 import { NewsPage } from './features/news/NewsPage';
 import { NewsDetailPage } from './features/news/NewsDetailPage';
@@ -58,9 +57,8 @@ function App() {
                 <Route path="courses/pdq" element={<PDQPage />} />
                 <Route path="admissions" element={<AdmissionsPage />} />
                 <Route path="teachers" element={<TeachersPage />} />
-                <Route path="student-life" element={<StudentLifePage />} />
+                <Route path="student-life/*" element={<StudentLifePage />} />
                 <Route path="clubs" element={<ClubsPage />} />
-                <Route path="dofe" element={<DOFEPage />} />
                 <Route path="student-support" element={<StudentSupportPage />} />
                 <Route path="news" element={<NewsPage />} />
                 <Route path="news/:slug" element={<NewsDetailPage />} />

@@ -45,10 +45,7 @@ const navItems: NavItem[] = [
   {
     label: 'Student Life',
     children: [
-      { label: 'Student Life', href: '/student-life', desc: 'Overview and activities.' },
-      { label: 'Student Clubs', href: '/clubs', desc: 'All student clubs and societies.' },
-      { label: 'DOFE', href: '/dofe', desc: 'Duke of Edinburgh\'s Award.' },
-      { label: 'Events', href: '/events', desc: 'School events and activities.' },
+      { label: 'Life in school', href: '/student-life', desc: 'Explore clubs, events and news.' },
     ],
   },
   {
